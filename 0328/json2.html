@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>json배열</h1>
+
+  <script>
+    let s = [
+      {name:"홍길동", kor:90, eng:80, mat:70},
+      {name:"임꺽정", kor:80, eng:90, mat:40},
+      {name:"장길산", kor:80, eng:50, mat:80},
+      {name:"강감찬", kor:60, eng:90, mat:70},
+      {name:"이순신", kor:50, eng:50, mat:90}
+  ]
+  for(i=0; i<s.length; i++) {
+    s[i].total = s[i].kor + s[i].eng + s[i].mat;
+  }
+  
+  console.log("---------------------------------")
+  for(i in s) {
+    console.log(`${s[i].name} ${s[i].total}`);
+  }
+  
+  console.log("---------------------------------")
+  for(item of s) {
+    console.log(`${item.name} ${item.total}`);
+  }
+  
+  console.log("---------------------------------")
+  s.forEach( (e) => {
+    console.log(`${e.name} ${e.total}`)
+  })
+  
+  </script>
+</body>
+</html>
