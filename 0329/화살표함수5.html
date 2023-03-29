@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>화살표함수5 문제</h1>
+  <script>
+  let rect=[
+    {w:5, h:4},
+    {w:15, h:14},
+    {w:7, h:8},
+    {w:9, h:4},
+    {w:5, h:7},
+  ];
+
+  //map
+  let r = rect.map( (r) => {
+    r.len = (r.w + r.h) * 2
+    r.surf = (r.w * r.h)
+    return r;
+  });
+  console.log(r);
+  console.log(rect);
+  console.log("-------------------------")
+  let emp=[
+    {"ename":"홍길동", "workHour":40, "PayForHour":10000},
+    {"ename":"임꺽정", "workHour":15, "PayForHour":20000},
+    {"ename":"장길산", "workHour":20, "PayForHour":20000},
+    {"ename":"강감찬", "workHour":30, "PayForHour":15000},
+    {"ename":"이순신", "workHour":40, "PayForHour":30000}
+  ]
+
+  let emp2 = emp.map( (e) => {
+    e.weeklyWage = e.PayForHour*e.workHour
+    return e
+  });
+
+  console.log(emp2);
+
+  emp2.forEach( (e) => {
+    console.log(e);
+  });
+  console.log("-------------------------")
+
+  let stu=[
+    {name:"이순신", kor:100, eng:100, mat:100},
+    {name:"강감찬", kor:40, eng:70, mat:90},
+    {name:"척준경", kor:30, eng:70, mat:70},
+    {name:"장길산", kor:50, eng:60, mat:10},
+    {name:"김성호", kor:60, eng:90, mat:100},
+  ]
+
+    stu.map( (item) => {
+      item.total = item.kor + item.eng + item.mat;
+      item.avg = item.total/3;
+      return item;
+    }).forEach(item => {
+      console.log(`${item.name}, ${item.total}, ${item.avg}`)
+    })
+  </script>
+</body>
+</html>

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,4 +26,33 @@ for(let i=0;i<emp.length;i++){
 
 </script>
 </body>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+<script>
+  let emp=[
+    {"ename":"홍길동", "workHour":40, "PayForHour":10000},
+    {"ename":"임꺽정", "workHour":15, "PayForHour":20000},
+    {"ename":"장길산", "workHour":20, "PayForHour":20000},
+    {"ename":"강감찬", "workHour":30, "PayForHour":15000},
+    {"ename":"이순신", "workHour":40, "PayForHour":30000}
+  ]
+for(let i=0;i<emp.length;i++){
+  emp[i].weeklyWage = emp[i].workHour * emp[i].PayForHour
+}
+ emp.forEach( (e) => {
+  console.log(`이름 : ${e.ename}  근무시간 : ${e.workHour}  시간당급여액 : ${e.PayForHour}  총액 : ${e.weeklyWage}`)
+ });
+
+</script>
+</body>
+>>>>>>> ec26f1ca7aad075d6a017e94c7dd7aac0e9a34e0
 </html>

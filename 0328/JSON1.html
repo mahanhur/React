@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,4 +22,29 @@
 
 </script>
 </body>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>json</h1>
+
+  <script>
+    let person={"name":"홍길동", "age":23, kor:90, eng:90, math:100};
+
+    console.log(person.name, person.age, person.kor, person.eng, person.math);
+    console.log(person["name"], person["age"], person["kor"], person["eng"], person["math"]);
+  
+    person.total = person.kor + person.eng + person.math;
+    person.avg = person.total/3;
+    console.log(`${person.name}의 총점은 ${person.total}이고, 평균은 ${person.avg}이다.`);
+
+</script>
+</body>
+>>>>>>> ec26f1ca7aad075d6a017e94c7dd7aac0e9a34e0
 </html>

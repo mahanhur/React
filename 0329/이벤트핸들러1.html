@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button type="button" onclick="goDisplay()">함수선언식</button><br>
+  <button type="button" id="btnPress">함수표현식</button><br>
+  <button type="button" id="btnPress2">화살표함수</button><br>
+  <!--
+    ****button태그를 input으로 바꿀 때 주의할 것!
+    1. <input type="submit"> 무조건 서버로 정보를 전송한다
+       == <button>누르세요</button>
+    
+    2. <input type="button"> 이벤트만 발생시킨다
+      == <button type="button">누르세요</button>
+  -->
+
+  <script>
+    //함수선언
+    function goDisplay() {
+      alert("button 눌림");
+    }
+    //버튼 객체 있는데 나중에 함수를 붙인다.
+    //초창기에는 script를 헤더에 놓았음 -> id가 없는데 불러와야하니
+    // 오류가 발생하는 경우가 발생할 수 있었음
+    //-> 따라서 window.onload로 호출했었음 -> 윈도우가 로드되면 그때 함수 읽자
+    document.getElementById("btnPress").addEventListener('click', function() {
+      alert("두번째 버튼");
+    });
+
+    document.getElementById("btnPress2").addEventListener('click', () => {
+      alert("세번째 버튼");
+    });
+  </script>
+</body>
+</html>

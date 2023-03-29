@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<br>
+<!--
+    1.사각형 문제 구하기
+    사각형의 가로 세로를 입력받아 면적을 구하여 출력하세요
+
+    2. 이름, 일주일간 근무시간, 시간당 급여액을 입력받아
+    주급을 계산하세요. 단 20시간초과근무시 초과근무에 대해서는
+    초과수당을 지급하세요. 초과수당은 시간당 급여액의 50%입니다.
+    근무시간 : 30  --input태그
+    시간당급여액 : 20000 --input태그
+    기본급 : 600000
+    초과수당 : 100000
+    합 : 700000 --span태그
+  -->
+<h1>1. 사각형 문제 구하기</h1>
+<input type="text" name="rWidth" id="width"></br>
+<input type="text" name="rHeight" id="height"></br>
+<button type="text" onclick="surf()">면적계산</button></br>
+<span id="result1"></span>
+
+<h1>2. 주급계산하기</h1>
+<input type="text" name="ename" id="ename" value="이름"></br>
+<input type="text" name="worktime" id="worktime" value="시간"></br>
+<input type="text" name="payforhour" id="payforhour" value="시간당얼마"></br>
+<button type="text" onclick="calc()">주급계산</button></br>
+<button type="text" onclick="clear()">새로입력</button></br>
+<span id="resultname"></span>
+<span id="result2"></span>
+
+
+<script>
+  function surf() {
+    x = document.getElementById("width").value;
+    y = document.getElementById("height").value;
+    result1 = parseInt(x) * parseInt(y);
+
+    document.getElementById("result1").innerHTML = result1;
+  }
+
+  function calc() {
+    n = document.getElementById("ename").value;
+    t = document.getElementById("worktime").value;
+    t2 = parseInt(t);
+    t3 = t2 - 20;
+    p = document.getElementById("payforhour").value;
+
+    if ((t2 - 20) > 0) {
+      result2 = 20 * p + ((t2 - 20) * (p * 1.5))
+    } else {
+      result2 = t2 * p
+    }
+    document.getElementById("resultname").innerHTML = n;
+    document.getElementById("result2").innerHTML = result2;
+  }
+
+  function clear() {
+    document.getElementById("ename").value = "";
+    document.getElementById("worktime").value = "";
+    document.getElementById("payforhour").value = "";
+    document.getElementById("result2").innerHTML = "";
+  }
+</script>
+</body>
+
+</html>

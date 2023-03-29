@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,4 +28,35 @@
     }
   </script>
 </body>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+    let rectangle=[
+      {width:4, height:4, length:0, surface:0},
+      {width:5, height:4, length:0, surface:0},
+      {width:6, height:5, length:0, surface:0},
+      {width:7, height:6, length:0, surface:0},
+      {width:8, height:7, length:0, surface:0}
+    ]
+
+    for (item of rectangle) {
+      item["length"] = item["width"] *2 + item["height"]*2;
+      item["surface"] = item["width"] * item["height"];
+    }
+
+    for (item of rectangle) {
+      console.log(`가로: ${item["width"]}, 세로: ${item["height"]}, 둘레: ${item["length"]}, 면적: ${item["surface"]}`);
+    }
+  </script>
+</body>
+>>>>>>> ec26f1ca7aad075d6a017e94c7dd7aac0e9a34e0
 </html>

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -23,3 +24,30 @@
 </body>
 
 </html>
+=======
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    let year = prompt("연도는?", "2023");
+    if (year != null) {
+      year = parseInt(year);
+      if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {
+        console.log(`${year}년은 윤년입니다.`)
+      } else {
+        console.log(`${year}년은 윤년이 아닙니다.`)
+      }
+    }
+  </script>
+</body>
+
+</html>
+>>>>>>> ec26f1ca7aad075d6a017e94c7dd7aac0e9a34e0

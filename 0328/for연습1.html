@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,4 +48,55 @@
     console.log(i, j);
   </script>
 </body>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>for문 연습1</h1>
+  <script>
+    let flowers=["작약", "백일홍", "천일홍", "국화", "장미"];
+    // console.log(flowers);
+
+    // for(let i=0; i<flowers.length; i++) {
+    //   console.log(i, flowers[i]);
+    // }
+
+    for(i in flowers) {
+      console.log(i, flowers[i]);
+    };
+
+    for(i of flowers) {
+      console.log(i);
+    };
+
+    flowers.forEach((a, i)=> {
+      console.log(a, i);
+    });
+
+    let flag=false;
+    i=1;
+    j=1;
+    while(true) {
+      i+=1;
+      while(true) {
+        j+=1;
+        if(j>=5) {
+          flag=true;
+          break;
+        }
+      }
+      if(flag) {
+        break;
+      }
+    }
+    console.log(i, j);
+  </script>
+</body>
+>>>>>>> ec26f1ca7aad075d6a017e94c7dd7aac0e9a34e0
 </html>
