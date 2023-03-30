@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>실습과제2</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+</head>
+<body>
+  이름 : <input type="text" id="name"/><br/>
+  국어 : <input type="text" id="kor" oninput="goInput(this)"/></br>
+  영어 : <input type="text" id="eng" oninput="goInput(this)"/></br>
+  수학 : <input type="text" id="math" oninput="goInput(this)"/></br>
+  <button type="text" id="resultBtn">결과확인</button>
+  <button type="text" id="clearBtn">초기화</button>
+  <br><div id="result"></div>
+
+  <script>
+    function goInput(me) {
+      me.value = me.value.replace(/[^0-9]/g, '');
+      if(me.value > 100) {
+        alert("0에서 100까지 입력가능합니다.")
+        me.value = '';
+      }
+    } // jquery로 어떻게 바꿔야할지 모르겠음
+    
+    $(document).ready( () => {
+      $("#resultBtn").click( () => {
+        name = $("#name").val();
+        kor = parseInt($("#kor").val());
+        eng = parseInt($("#eng").val());
+        math = parseInt($("#math").val());
+
+        sum = kor + eng + math;
+        avg = sum/3;
+
+        result = `${name}님의 총점은 ${sum}이고 평균은 ${avg}입니다.`
+        $("#result").html(result);
+      })
+
+      $("#clearBtn").click( () => {
+        $("#name").val('');
+        $("#kor").val('');
+        $("#eng").val('');
+        $("#math").val('');
+        $("#result").html('');
+      })
+    })
+  </script>
+</body>
+</html>
