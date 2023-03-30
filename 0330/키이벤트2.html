@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input type="text" onkeypress="inNumber()"/><br/>
+  <input type="text" oninput="goInput(this)"/><br/>
+  <script>
+    function inNumber() {
+      //event 발생했던 모든 이벤트에 대한 정보를 가지고 있는
+      // JS내장객체
+      // 0:48, 9:57, A:65, a:97
+      if(event.keyCode<48 || event.keyCode>57) {
+        event.returnValue=false;
+        //해당문자가 input태그에 나타나는걸 막는다
+      }
+    }
+
+    //0~9를 제외한 문자를 없애고싶다
+    function goInput(me) {
+      //replace(/패턴/) 패턴은 // 사이에 넣는다, g는 "전부다"
+      //ex) [0-9] --> []로 구성되어진
+      //ex) [^0-9] --> []를 제외한 
+      //ex) ^[0-9] --> []로 시작하는(와일드카드처럼)
+
+      me.value = me.value.replace(/[^0-9]/g, '');
+      //0~9를 제외한 글자를 전부 공백으로 바꿔라
+    }
+  </script>
+</body>
+</html>

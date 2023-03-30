@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>실습과제2</title>
+
+</head>
+<body>
+  이름 : <input type="text" id="name"/><br/>
+  국어 : <input type="text" id="kor" oninput="goInput(this)"/></br>
+  영어 : <input type="text" id="eng" oninput="goInput(this)"/></br>
+  수학 : <input type="text" id="math" oninput="goInput(this)"/></br>
+  <button type="text" id="resultBtn" onclick="goResult()">결과확인</button>
+  <button type="text" id="clearBtn" onclick="goClear()">초기화</button>
+  <br><div id="result"></div>
+
+  <script>
+    function goInput(me) {
+      me.value = me.value.replace(/[^0-9]/g, '');
+      if(me.value > 100) {
+        alert("0에서 100까지 입력가능합니다.")
+        me.value = '';
+      }
+    }
+   
+    function goResult() {
+      name = document.getElementById("name").value;
+      kor = parseInt(document.getElementById("kor").value);
+      eng = parseInt(document.getElementById("eng").value);
+      math = parseInt(document.getElementById("math").value);
+      
+      sum = kor + eng + math;
+      avg = sum / 3;
+      
+      result = `${name}님의 총점은 ${sum}이고 평균은 ${avg}입니다.`
+      document.getElementById("result").innerHTML = result;
+    }
+
+    function goClear() {
+      document.getElementById("name").value = '';
+      document.getElementById("kor").value = '';
+      document.getElementById("eng").value = '';
+      document.getElementById("math").value = '';
+      document.getElementById("result").innerHTML = '';
+    }
+    
+  </script>
+</body>
+</html>

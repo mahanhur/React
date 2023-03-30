@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+</head>
+
+<body>
+  <h1>2. 주급계산하기</h1>
+  이름 : <input type="text" id="ename"></br>
+  근무시간 : <input type="text" id="worktime"></br>
+  시간당급여액 : <input type="text" id="payforhour"></br>
+  <button type="text" id="calc">주급계산</button></br>
+  <button type="text" id="goClear">새로입력</button></br>
+  <span id="result"></span>
+  <script>
+
+    $(document).ready( () => {
+      $("#calc").click( () => {
+        ename = $("#ename").val();
+        time = parseInt($("#worktime").val());
+        pay = $("#payforhour").val();
+        time2 = 0;
+
+        if((time - 20) > 0) {
+          time2 = time - 20
+          result2 = (20 * pay) + (time2 * (pay * 1.5));
+        } else { 
+          result2 = time * pay;
+        }
+        $("#result").html(`${ename}님의 총 근무시간은 ${time}, 초과근무는 ${time2}시간이므로, 초과수당 ${time2*pay*1.5} / 총 주급 ${result2}입니다.`);
+
+      })
+      $("#goClear").click( () => {
+        $("#ename").val('');
+        $("#worktime").val('');
+        $("#payforhour").val('');
+        $("#result").html('');
+      })
+    })
+  </script>
+</body>
+
+</html>
