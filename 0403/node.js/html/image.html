@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Image Text Detection</title>
+  </head>
+  <body>
+    <form>
+      <label for="imageUrl">Image URL:</label>
+      <input type="text" id="imageUrl" name="imageUrl">
+      <button type="submit">Analyze</button>
+    </form>
+    <div id="result"></div>
+
+    <script>
+      const form = document.querySelector('form');
+      const resultDiv = document.querySelector('#result');
+
+      form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+
+        const imageUrl = document.querySelector('#imageUrl').value;
+        const response = await fetch(`/analyze?url=${imageUrl}`);
+        const text = await response.text();
+        resultDiv.textContent = text;
+      });
+    </script>
+  </body>
+</html>
