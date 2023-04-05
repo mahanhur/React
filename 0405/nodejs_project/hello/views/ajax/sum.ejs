@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>불멸의 사칙연산</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+</head>
+<body>
+  <form name="myform" action="/result">
+    이름 : <input type="text" name="name" id="name"/><br/>
+    국어 : <input type="text" name="kor" id="kor" ></br>
+    영어 : <input type="text" name="eng" id="eng"/></br>
+    수학 : <input type="text" name="math" id="math"/></br></br>
+    <button type="button" id="resultBtn">결과확인</button></br>
+    <div>
+      <div id="resultName"></div>님의 총점은 <div id="resultSum"></div>, 평균은 <div id="resultAvg"></div>입니다.
+    </div>
+  </form>
+  <script>
+    $(document).ready( ()=> {
+      $("#resultBtn").click( () => {
+        $.ajax({
+          url:"/sum/result",
+          data:{
+            "name":$("#name").val(),
+            "kor":$("#kor").val(),
+            "eng":$("#eng").val(),
+            "math":$("#math").val()
+          },
+          dataType:"json"
+        })
+        .done( (res, status, err) => {
+          console.log(res.sum);
+          $("#resultName").html(res.name);
+          $("#resultSum").html(res.sum);
+          $("#resultAvg").html(res.avg);
+        })
+        .fail( (res, status, err) => {
+          console.log(status);
+        })
+      })
+    })
+  </script>
+</body>
+</html>
