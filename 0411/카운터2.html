@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+    const {useState} = React;
+
+    class MyComponent1 extends React.Component{
+      render() {
+        return (
+          <div>
+            <h1>클래스기반</h1>
+          </div>
+        )
+      }
+    }
+
+    ReactDOM.render(
+      <div>
+        <h1>카운터</h1>
+        <Counter/>
+      </div>,
+      document.getElementById("root") //전체구조의 뿌리가 되는 태그
+    );
+
+    //변수를 state라는 공간에 저장한다.
+    //일반적으로 함수에 변수를 만들면 함수 종료하면 변수도 종료됨
+    //리액트는 state라는 공간에 저장해 유지할 수 있따.
+    function Counter() {
+      const [number, setNumber] = useState(0);
+      //변수 , 변수의 값을 바꾸는 함수 = useState(변수초기값)
+      const onIncrease = () => {
+        setNumber(number + 1);// 반드시 set함수에 의해 값이 바뀌어야
+                              // react가 화면에 렌더링 작업을 한다.
+      }
+      const onDecrease = () => {
+        setNumber(number - 1);
+      }
+      return(
+        <div>
+          <h3>{number}</h3>
+          <button type="button" onClick={onIncrease}>+</button>
+          <button type="button" onClick={onDecrease}>-</button>
+        </div>
+      )
+    }
+  </script>
+</body>
+</html>
